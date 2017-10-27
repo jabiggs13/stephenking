@@ -19,45 +19,58 @@
   </style>
 </head>
 <body>
-<div id='map-popups' class='map'> </div>
+<div id='map-one' class='map'> </div>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiamFiaWdnczEzIiwiYSI6ImNpdTl0enV1YTAwMDEydG1wZ3YzNDF1ZWEifQ.qwYjWrKbWIewPCKcqQc6sw';
-var mapPopups = L.mapbox.map('map-popups', 'mapbox.light')
-  .setView([37.8, -96], 4);
-var myLayer = L.mapbox.featureLayer().addTo(mapPopups);
+var mapOne = L.mapbox.map('map-one', 'mapbox.dark')
+  .setView([37.8, -96], 5);
+var myLayer = L.mapbox.featureLayer().addTo(mapOne);
 
 var geojson = [
   {
     type: 'Feature',
     geometry: {
       type: 'Point',
-      coordinates: [-77.031952, 38.913184]
+      coordinates: [-69.4773, 43.892]
     },
     properties: {
-      title: 'Mapbox DC',
+       title: 'Carrie',
       description: '1714 14th St NW, Washington DC',
-      'marker-color': '#3bb2d0',
-      'marker-size': 'large',
-      'marker-symbol': 'rocket'
+      icon: {
+        iconUrl: 'icons/carrie.svg',
+        iconSize: [200, 200], // size of the icon
+        //iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
+        popupAnchor: [0, -25], // point from which the popup should open relative to the iconAnchor
+        className: 'dot'
+      }
     }
   },
   {
     type: 'Feature',
     geometry: {
       type: 'Point',
-      coordinates: [-122.413682, 37.775408]
+      coordinates: [-69.1112, 44.8209]
     },
     properties: {
-      title: 'Mapbox SF',
-      description: '155 9th St, San Francisco',
-      'marker-color': '#3bb2d0',
-      'marker-size': 'large',
-      'marker-symbol': 'rocket'
+       title: 'IT',
+      description: '1714 14th St NW, Washington DC',
+      icon: {
+        iconUrl: 'icons/pennywise.svg',
+        iconSize: [200, 200], // size of the icon
+      //  iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
+        popupAnchor: [0, -25], // point from which the popup should open relative to the iconAnchor
+        className: 'dot'
+      }
     }
   }
 ];
+myLayer.on('layeradd', function(e) {
+  var marker = e.layer,
+    feature = marker.feature;
+  marker.setIcon(L.icon(feature.properties.icon));
+});
 myLayer.setGeoJSON(geojson);
-mapPopups.scrollWheelZoom.disable();
+mapOne.scrollWheelZoom.disable();
 </script>
 </body>
 </html>
