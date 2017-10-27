@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet' />
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
+
 <html lang="en">
 
   <head>
@@ -50,19 +52,29 @@
   
 
     <!-- Portfolio Grid Section -->
-    <section id="portfolio">
-      <div class="container">
-        <h2 class="text-center">THE MAP</h2>
-        <hr class="star-primary">
-          <div id='map' style='width: 100%; height: 100%;'></div>
-          <script>
-              mapboxgl.accessToken = 'pk.eyJ1IjoiamRlY29vayIsImEiOiJjajhxMW92MW0wZGRlMzRxdTM0bjkydGlyIn0.WXIeRcgjTnZ4RH2ElAwtVw';
-              var map = new mapboxgl.Map({
-                  container: 'map',
-                  style: 'mapbox://styles/jdecook/cj9037wxgjflg2ss1y4ukz63w'
-                });
-          </script></div>
-    </section>
+    //<section id="portfolio">
+      //<div class="container">
+        //<hr class="star-primary">
+          //<div id='map' style='width: 100%; height: 100%;'></div>
+          //<script>
+            //  mapboxgl.accessToken = 'pk.eyJ1IjoiamRlY29vayIsImEiOiJjajhxMW92MW0wZGRlMzRxdTM0bjkydGlyIn0.WXIeRcgjTnZ4RH2ElAwtVw';
+              //var map = new mapboxgl.Map({
+                //  container: 'map',
+                  //style: 'mapbox://styles/jdecook/cj9037wxgjflg2ss1y4ukz63w'
+               //});
+          //</script></div>
+    //</section>
+    
+    
+    <div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+mapboxgl.accessToken = '<your access token here>';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9'
+});
+</script>
+
 
 
  
